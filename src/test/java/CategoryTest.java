@@ -41,18 +41,7 @@ public class CategoryTest {
     Category savedCategory = Category.all().get(0);
     assertEquals(myCategory.getId(), savedCategory.getId());
   }
-  // @Test
-  // public void category_instantiatesCorrectly_true() {
-  //   Category testCategory = new Category("Home");
-  //   assertEquals(true, testCategory instanceof Category);
-  // }
-  //
-  // @Test
-  // public void getName_categoryInstantiatesWithName_Home() {
-  //   Category testCategory = new Category("Home");
-  //   assertEquals("Home", testCategory.getName());
-  // }
-  //
+
   @Test
   public void all_returnsAllInstancesOfCategory_true() {
     Category firstCategory = new Category("Home");
@@ -62,13 +51,7 @@ public class CategoryTest {
     assertEquals(true, Category.all().get(0).equals(firstCategory));
     assertEquals(true, Category.all().get(1).equals(secondCategory));
   }
-  //
-  // @Test
-  // public void clear_emptiesAllCategoriesFromList_0() {
-  //   Category testCategory = new Category("Home");
-  //   assertEquals(Category.all().size(), 0);
-  // }
-  //
+
   @Test
   public void getId_categoriesInstantiateWithAnId_1() {
     Category testCategory = new Category("Home");
@@ -97,6 +80,33 @@ public class CategoryTest {
     assertTrue(myCategory.getTasks().containsAll(Arrays.asList(tasks)));
   }
 
+  @Test
+  public void update_updatesCategoryName_true() {
+    Category testCategory = new Category ("Schoolwork");
+    testCategory.save();
+    testCategory.update("Homework");
+    assertEquals("Homework", Category.find(testCategory.getId()).getName());
+  }
+
+  // @Test
+  // public void category_instantiatesCorrectly_true() {
+  //   Category testCategory = new Category("Home");
+  //   assertEquals(true, testCategory instanceof Category);
+  // }
+  //
+  // @Test
+  // public void getName_categoryInstantiatesWithName_Home() {
+  //   Category testCategory = new Category("Home");
+  //   assertEquals("Home", testCategory.getName());
+  // }
+  //
+  //
+  // @Test
+  // public void clear_emptiesAllCategoriesFromList_0() {
+  //   Category testCategory = new Category("Home");
+  //   assertEquals(Category.all().size(), 0);
+  // }
+  //
   // @Test
   // public void getTasks_initiallyReturnsEmptyList_ArrayList() {
   //   Category testCategory = new Category("Home");
